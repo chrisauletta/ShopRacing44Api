@@ -1,0 +1,31 @@
+{
+  "local": {
+    "username": "root",
+    "password": null,
+    "database": "show_racing_44",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+
+  "development": {
+    "host": "mysql26-farm10.kinghost.net",
+    "username": "autounity02",
+    "password": "shopracing44",
+    "database": "autounity02",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
