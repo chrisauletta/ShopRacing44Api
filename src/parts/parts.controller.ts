@@ -1,6 +1,6 @@
 
-import { Body, Controller, Get, Post } from '@nestjs/common';
-import { ApiBearerAuth, ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { Body, Controller, Get, ParseIntPipe, Post, Query } from '@nestjs/common';
+import { ApiBearerAuth, ApiCreatedResponse, ApiOkResponse, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { PartsService } from './parts.service';
 import { PartDto } from './dto/part.dto';
 import { Part as PartEntity} from './part.entity';
@@ -14,11 +14,13 @@ export class PartsController extends BaseController<PartEntity>{
         super(partsServices);
     }
 
-    // @Get()
-    // @ApiOkResponse({type: [PartDto]})
-    // findAll():Promise<PartDto[]>{
-    //     return this.partsServices.findAll();
-    // }
+	@Post('findParts')
+	@ApiResponse({ status: 200, description: 'Ok'})
+	async findParts(
+        @Body() body    
+    ): Promise<PartEntity[]> {
+		return this.partsServices.getAllPaginated(body)
+	}
 
     // @Post()
     // @ApiCreatedResponse({ type: PartEntity })
